@@ -1,17 +1,21 @@
-# susuno_mobile
+# SUSUNO - Warehouse Management System App
 
-A new Flutter project.
+**SUSUNO** adalah aplikasi mobile manajemen pergudangan berbasis Flutter yang dirancang untuk kebutuhan pemantauan stok real-time, pencatatan transaksi masuk/keluar (*Inbound/Outbound*), serta manajemen tugas inventaris.
 
-## Getting Started
+Aplikasi ini dikembangkan untuk memenuhi tugas **Slicing UI & Implementation of Global State Management** dengan arsitektur **MVC (Model-View-Controller)**.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## Fitur Utama
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 📊 **Real-time Inventory Telemetry (Dashboard)**:
+  - Ringkasan total SKU aktif dan unit stok.
+  - Telemetry *Inbound* & *Outbound* harian yang terhubung langsung dengan *Global State*.
+  - Pemantauan stok kritis (*Critical Stock Monitoring*), *AI Insights*, dan riwayat audit aktivitas gudang (*Audit Trail*).
+- 📦 **Stock Monitoring (`stock_screen.dart`)**:
+  - Daftar lengkap seluruh item barang beserta lokasi rak/bin.
+  - Indikator visual otomatis (Merah/Hijau) jika stok berada di bawah batas aman (*Below Safe Stock*).
+- 📲 **Barcode/QR Scanner UI (`scanner_screen.dart`)**:
+  - Simulasi pemindaian barang untuk *Stock In* dan *Stock Out*.
+  - Pengaturan jumlah kuantitas fisik (*Physical Count*) secara cepat (+1, +5, +10).
+  - Integrasi transaksi langsung ke *Global State Provider*.
