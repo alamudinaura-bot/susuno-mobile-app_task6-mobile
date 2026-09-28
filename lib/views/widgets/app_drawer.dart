@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../providers/auth_provider.dart';
+import '../profile_screen.dart';
 
 const kSusunoGreen = Color(0xFF5B6A32);
 
@@ -41,11 +45,25 @@ class AppDrawer extends StatelessWidget {
             title: Text('Scanner'),
           ),
           const Divider(),
-          const ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text('Profile & Settings'),
+            onTap: () {
+              Navigator.of(context).pop(); // close the drawer
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (_) => const ProfileScreen()));
+            },
           ),
-          const ListTile(leading: Icon(Icons.logout), title: Text('Log out')),
+          ListTile(
+            leading: const Icon(Icons.logout),
+            title: const Text('Log out'),
+            onTap: () {
+              final auth = context.read<AuthProvider>();
+              Navigator.of(context).popUntil((route) => route.isFirst);
+              auth.logout(); // AuthGate in main.dart switches back to LoginScreen
+            },
+          ),
         ],
       ),
     );
